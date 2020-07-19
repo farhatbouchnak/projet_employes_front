@@ -1,0 +1,49 @@
+<div class=" col-md-8 col-md-offset-2" style="margin-top: 30px;">
+    <div class="panel panel-primary">
+
+        <div>
+            <form [formGroup]="uploadForm" (ngSubmit)="getEmployeesByCriteria()">
+                <div>
+                    <input type="file" name="profile" (change)="onFileSelect($event)" />
+                </div>
+                <br>
+                <div>
+                    <label>Salary :</label>
+                    <input  type="text" name="salary" class="form-control" formControlName="salary" placeholder="salary">
+                </div> 
+                <br>
+                <div>
+                    <button type="submit">Filtrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="panel-heading">Liste des employées</div>
+    <div class="panel-body">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>salary</th>
+                            <th>hireday</th>
+                            <th>hiremonth</th>
+                            <th>hireyear</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let employee of employees">
+                            <td>{{employee.name}}</td>
+                            <td>{{employee.salary}}</td>
+                            <td>{{employee.hireday}}</td>
+                            <td>{{employee.hiremonth}}</td>
+                            <td>{{employee.hireyear}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
